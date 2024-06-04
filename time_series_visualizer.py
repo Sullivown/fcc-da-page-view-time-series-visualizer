@@ -36,11 +36,16 @@ def draw_bar_plot():
 
 
     # Draw bar plot
+    
     grouped_bar = df_bar_group.unstack().plot(
         kind='bar',
         stacked=False, 
-        title='Grouped Bar Graph with dataframe') 
-    grouped_bar.legend([ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ])
+        xlabel='Years',
+        ylabel='Average Page Views',
+        figsize=(10,8),
+    )
+
+    grouped_bar.legend([ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ], title = "Month")
 
     fig = grouped_bar.get_figure()
 

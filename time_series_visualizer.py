@@ -29,14 +29,10 @@ def draw_bar_plot():
 
     df_bar['month'] = df_bar['date'].dt.month
     df_bar['year'] = df_bar['date'].dt.year
-    print(df_bar)
 
     df_bar_group = df_bar.groupby(['year', 'month']).agg('mean')
-    print(df_bar_group.unstack())
-
 
     # Draw bar plot
-    
     grouped_bar = df_bar_group.unstack().plot(
         kind='bar',
         stacked=False, 
@@ -48,7 +44,6 @@ def draw_bar_plot():
     grouped_bar.legend([ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ], title = "Month")
 
     fig = grouped_bar.get_figure()
-
 
     # Save image and return fig (don't change this part)
     fig.savefig('bar_plot.png')

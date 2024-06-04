@@ -12,11 +12,12 @@ df = df[(df['value'] > df['value'].quantile(0.25)) & (df['value'] < df['value'].
 
 def draw_line_plot():
     # Draw line plot
-    plt.plot(data=df, x='date', y='value')
+    fig = plt.figure(figsize=(18,6))
+    plt.plot(df, color='r')
     plt.title('Daily freeCodeCamp Forum Page Views 5/2016-12/2019')
+    plt.xlabel('Date')
+    plt.ylabel('Page Views')
 
-    fig = plt.figure()
-    
 
     # Save image and return fig (don't change this part)
     fig.savefig('line_plot.png')
